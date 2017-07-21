@@ -33,13 +33,19 @@ class ViewController: UIViewController {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let yOffset = scrollView.contentOffset.y
-        if yOffset <= stopPoint {
+        print(yOffset)
+        if yOffset <= stopPoint && yOffset > 0 {
             let alpha = yOffset/stopPoint
             // print(alpha)
             navBarView.alpha = alpha
             // print(yOffset)
             navBarView.transform = CGAffineTransform(translationX: 0, y: -yOffset)
         }
+        
+        if yOffset < 0 {
+            scrollView.contentOffset.y = 0
+        }
+        
     }
 
 }
