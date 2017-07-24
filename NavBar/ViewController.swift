@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var tbView: UITableView!
     @IBOutlet weak var navBarView: UIView!
 
+    @IBOutlet weak var barView: UIView!
     // At this point the navBarView will stick to top and turn alpha to 1.
     var stopPoint: CGFloat = 0
     
@@ -22,30 +23,29 @@ class ViewController: UIViewController {
         navigationController?.navigationBar.setTitleAttributes(attributes: [NSForegroundColorAttributeName: UIColor.white])
         UIApplication.shared.statusBarStyle = .lightContent
         navBarView.alpha = 0.0
+        barView.alpha = 0.0
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         stopPoint = navBarView.frame.size.height - navigationController!.navigationBar.frame.size.height - 20
+        print(stopPoint)
         self.title = "Navigation Bar."
+        tbView.decelerationRate = UIScrollViewDecelerationRateNormal
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let yOffset = scrollView.contentOffset.y
-        print(yOffset)
-        if yOffset <= stopPoint && yOffset > 0 {
-            let alpha = yOffset/stopPoint
-            // print(alpha)
-            navBarView.alpha = alpha
-            // print(yOffset)
-            navBarView.transform = CGAffineTransform(translationX: 0, y: -yOffset)
+        let alpha = yOffset/stopPoint
+        barView.alpha = alpha
+        if yOffset > stopPoint {
+            
+            navigationController?.navigationBar.nonTrasnperent()
+            navigationController?.navigationBar.tintColor = UIColor.red
+        } else {
+            navigationController?.navigationBar.transperent()
         }
-        
-        if yOffset < 0 {
-            scrollView.contentOffset.y = 0
-        }
-        
     }
 
 }
@@ -78,7 +78,7 @@ extension UINavigationBar {
     
     func nonTrasnperent() {
         self.setBackgroundImage(nil, for: UIBarMetrics.default)
-        // self.shadowImage = nil
+        self.shadowImage = nil
         self.tintColor = nil
         self.isTranslucent = false
     }

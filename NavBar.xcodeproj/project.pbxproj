@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8FA829541F25B7B100B0AF2A /* TwitterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA829531F25B7B100B0AF2A /* TwitterViewController.swift */; };
 		8FD6D62E1F20FE4100D00A09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD6D62D1F20FE4100D00A09 /* AppDelegate.swift */; };
 		8FD6D6301F20FE4100D00A09 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD6D62F1F20FE4100D00A09 /* ViewController.swift */; };
 		8FD6D6331F20FE4100D00A09 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FD6D6311F20FE4100D00A09 /* Main.storyboard */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8FA829531F25B7B100B0AF2A /* TwitterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterViewController.swift; sourceTree = "<group>"; };
 		8FD6D62A1F20FE4100D00A09 /* NavBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NavBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FD6D62D1F20FE4100D00A09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8FD6D62F1F20FE4100D00A09 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				8FD6D62D1F20FE4100D00A09 /* AppDelegate.swift */,
 				8FD6D62F1F20FE4100D00A09 /* ViewController.swift */,
 				8FD6D6431F210B9F00D00A09 /* negativespace-161.jpg */,
+				8FA829531F25B7B100B0AF2A /* TwitterViewController.swift */,
 				8FD6D6311F20FE4100D00A09 /* Main.storyboard */,
 				8FD6D6341F20FE4100D00A09 /* Assets.xcassets */,
 				8FD6D6361F20FE4100D00A09 /* LaunchScreen.storyboard */,
@@ -140,6 +143,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FA829541F25B7B100B0AF2A /* TwitterViewController.swift in Sources */,
 				8FD6D6301F20FE4100D00A09 /* ViewController.swift in Sources */,
 				8FD6D62E1F20FE4100D00A09 /* AppDelegate.swift in Sources */,
 			);
@@ -305,6 +309,7 @@
 				8FD6D63E1F20FE4100D00A09 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
