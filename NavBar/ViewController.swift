@@ -17,7 +17,8 @@ class ViewController: UIViewController {
     // At this point the navBarView will stick to top and turn alpha to 1.
     
     var stopPoint: CGFloat = 0
-    var offset_HeaderStop:CGFloat = 236.0 // At this offset the Header stops its transformations
+    var offset_HeaderStop: CGFloat = 236.0 // At this offset the Header stops its transformations
+    let offset_alpha: CGFloat = 160
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -39,7 +40,10 @@ class ViewController: UIViewController {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let yOffset = scrollView.contentOffset.y
         var headerTransform = CATransform3DIdentity
-        let alpha = yOffset/offset_HeaderStop
+        var alpha: CGFloat = 0
+        if yOffset >= offset_alpha {
+            alpha = (yOffset-offset_alpha)/(offset_HeaderStop-offset_alpha)
+        }
         
         if yOffset < 0 {
             // Pulling up
