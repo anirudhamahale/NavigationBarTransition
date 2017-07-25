@@ -19,7 +19,7 @@ class TwitterViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        header.alpha = 0
         scrollView.delegate = self
     }
     
@@ -28,16 +28,22 @@ class TwitterViewController: UIViewController, UIScrollViewDelegate {
         var headerTransform = CATransform3DIdentity
         
         // PULL DOWN -----------------
-        
         if offset < 0 {
             
             let headerScaleFactor:CGFloat = -(offset) / header.bounds.height
+            print("offf is less")
+            header.alpha = headerScaleFactor
             let headerSizevariation = ((header.bounds.height * (1.0 + headerScaleFactor)) - header.bounds.height)/2.0
             headerTransform = CATransform3DTranslate(headerTransform, 0, headerSizevariation, 0)
             headerTransform = CATransform3DScale(headerTransform, 1.0 + headerScaleFactor, 1.0 + headerScaleFactor, 0)
-            
-            header.layer.transform = headerTransform
+        } else {
+            // Header -----------
+            print("offf is more")
+            headerTransform = CATransform3DTranslate(headerTransform, 0, max(-offset_HeaderStop, -offset), 0)
         }
+        
+        // Apply Transformations
+        header.layer.transform = headerTransform
     }
     
 

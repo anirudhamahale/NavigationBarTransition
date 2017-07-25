@@ -15,7 +15,9 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var barView: UIView!
     // At this point the navBarView will stick to top and turn alpha to 1.
+    
     var stopPoint: CGFloat = 0
+    var offset_HeaderStop:CGFloat = 236.0 // At this offset the Header stops its transformations
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -29,23 +31,27 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        stopPoint = navBarView.frame.size.height - navigationController!.navigationBar.frame.size.height - 20
-        print(stopPoint)
+        offset_HeaderStop = navBarView.frame.size.height - navigationController!.navigationBar.frame.size.height - 20
         self.title = "Navigation Bar."
-        tbView.decelerationRate = UIScrollViewDecelerationRateNormal
+        // tbView.decelerationRate = UIScrollViewDecelerationRateNormal
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let yOffset = scrollView.contentOffset.y
-        let alpha = yOffset/stopPoint
-        barView.alpha = alpha
-        if yOffset > stopPoint {
-            
-            navigationController?.navigationBar.nonTrasnperent()
-            navigationController?.navigationBar.tintColor = UIColor.red
+        var headerTransform = CATransform3DIdentity
+        let alpha = yOffset/offset_HeaderStop
+        
+        if yOffset < 0 {
+            // Pulling up
+            // headerTransform = CATransform3DTranslate(headerTransform, 0, min(-offset_HeaderStop, -yOffset), 0)
         } else {
-            navigationController?.navigationBar.transperent()
+            // Pulling down
+            // headerTransform = CATransform3DTranslate(headerTransform, 0, max(-offset_HeaderStop, -yOffset), 0)
+            headerTransform = CATransform3DTranslate(headerTransform, 0, max(-offset_HeaderStop, -yOffset), 0)
         }
+        
+        navBarView.alpha = alpha
+        navBarView.layer.transform = headerTransform
     }
 
 }
