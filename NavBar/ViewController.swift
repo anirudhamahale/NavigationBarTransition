@@ -16,9 +16,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var barView: UIView!
     // At this point the navBarView will stick to top and turn alpha to 1.
     
-    var stopPoint: CGFloat = 0
     var offset_HeaderStop: CGFloat = 236.0 // At this offset the Header stops its transformations
-    let offset_alpha: CGFloat = 160
+    let offset_alpha: CGFloat = 160 // At this the alpha of navigation bar will start to change.
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

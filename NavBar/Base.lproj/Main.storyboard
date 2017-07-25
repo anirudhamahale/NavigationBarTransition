@@ -86,7 +86,7 @@
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H77-72-l1w">
                                 <rect key="frame" x="0.0" y="-2" width="375" height="300"/>
-                                <color key="backgroundColor" red="0.27450980392156865" green="0.71372549019607845" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.80784313730000001" green="0.26274509800000001" blue="0.019607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="kHe-Nt-FjB"/>
                                 </constraints>
