@@ -22,8 +22,8 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.transperent()
-        navigationController?.navigationBar.setTitleAttributes(attributes: [NSForegroundColorAttributeName: UIColor.white])
-        UIApplication.shared.statusBarStyle = .lightContent
+        navigationController?.navigationBar.setTitleAttributes(attributes: [NSForegroundColorAttributeName: UIColor.black])
+        UIApplication.shared.statusBarStyle = .default
         navBarView.alpha = 0.0
         barView.alpha = 0.0
     }
